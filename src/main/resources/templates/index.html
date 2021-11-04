@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-theme.css">
   <script src="js/bootstrap.min.js" type="application/javascript"></script>
+  <link rel="stylesheet" href="css/community.css">
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -13,7 +14,7 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">影</span>
+          <span class="sr-only" href="/index">影</span>
         </button>
         <a class="navbar-brand" href="#">影</a>
       </div>
@@ -46,5 +47,37 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+  <div class="container-fluid main">
+    <div class="row">
+      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
+        <hr>
+        <div class="media" th:each="questions : ${question}">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object img-rounded" th:src="${questions.user.avatarUrl}">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading" th:text="${questions.title}"></h4>
+            <span th:text="${questions.description}"></span><br>
+            <span class="text-desc">
+              <span th:text="${questions.comentCount}?:0"></span> 个回复 •
+              <span th:text="${questions.viewCount}"></span> 次浏览 •
+              <span th:text="${#dates.format(questions.gmtCreate,'dd MMMM yyyy')}"></span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <h3>问题发起指南</h3>
+        • 问题标题: 请用精简的语言描述您发布的问题，不超过25字 <br>
+        • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料<br>
+        • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
