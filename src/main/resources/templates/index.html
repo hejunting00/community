@@ -17,7 +17,9 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading" th:text="${questions.title}"></h4>
+            <h4 class="media-heading">
+              <a th:href="@{'/question/'+ ${questions.id}}" th:text="${questions.title}"></a>
+            </h4>
             <span th:text="${questions.description}"></span><br>
             <span class="text-desc">
               <span th:text="${questions.comentCount}?:0"></span> 个回复 •
