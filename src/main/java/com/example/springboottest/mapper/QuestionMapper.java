@@ -1,10 +1,7 @@
 package com.example.springboottest.mapper;
 
 import com.example.springboottest.model.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -27,5 +24,8 @@ public interface QuestionMapper {
 
     @Select("select * from QUESTION where id=#{id}")
     Question getByid(@Param("id") Integer id);
+
+    @Update("update question set title=#{title},DESCRIPTION=#{description},GMT_MODIFIED=#{gmtModified},tag=#{tag} where id=#{id}")
+    void update(Question question);
 }
 
