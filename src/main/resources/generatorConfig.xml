@@ -5,6 +5,7 @@
 
 <generatorConfiguration>
     <context id="DB2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
         <jdbcConnection driverClass="org.h2.Driver"
                         connectionURL="jdbc:h2:C:\Test Project\Test Java\demo\spring boot test\h2db"
                         userId="sa"
@@ -28,7 +29,8 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table schema="DB2ADMIN" tableName="user" domainObjectName="User" ></table>
+        <table tableName="user" domainObjectName="User" ></table>
+        <table tableName="question" domainObjectName="Question" ></table>
 
     </context>
 </generatorConfiguration>

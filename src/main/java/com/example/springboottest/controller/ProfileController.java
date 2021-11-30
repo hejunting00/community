@@ -4,6 +4,7 @@ import com.example.springboottest.dto.PaginationDTO;
 import com.example.springboottest.mapper.UserMapper;
 import com.example.springboottest.model.User;
 import com.example.springboottest.service.QuestionService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
